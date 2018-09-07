@@ -1,0 +1,38 @@
+<!--
+  ~ Copyright (C) 2018 Google Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Notification Scheduler</string>
+    <string name="seconds">%1$d s</string>
+    <string name="required_network_type">Network Type Required:</string>
+    <string name="none">None</string>
+    <string name="any">Any</string>
+    <string name="wifi">Wifi</string>
+    <string name="requires">Requires:</string>
+    <string name="device_idle">Device Idle</string>
+    <string name="device_charging">Device Charging</string>
+    <string name="override_deadline">Override Deadline:</string>
+    <string name="not_set">Not set</string>
+    <string name="schedule_job">Schedule Job</string>
+    <string name="cancel_jobs">Cancel Jobs</string>
+    <string name="job_service">Job Service</string>
+    <string name="job_running">Your Job ran to completion!</string>
+    <string name="job_service_notification">Job Service notification</string>
+    <string name="notification_channel_description">Notifications from Job Service</string>
+    <string name="job_scheduled">Job Scheduled, will run when the constraints are met</string>
+    <string name="no_constraint_toast">Please set at least one constraint</string>
+    <string name="jobs_canceled">Jobs Canceled</string>
+</resources>
