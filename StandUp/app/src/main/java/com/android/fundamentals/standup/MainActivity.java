@@ -36,16 +36,12 @@ import android.widget.ToggleButton;
  */
 public class MainActivity extends AppCompatActivity {
 
-
-    private NotificationManager mNotificationManager;
-
-    //Notification ID.
+    // Notification ID.
     private static final int NOTIFICATION_ID = 0;
-
     // Notification channel ID.
     private static final String PRIMARY_CHANNEL_ID =
             "primary_notification_channel";
-
+    private NotificationManager mNotificationManager;
 
     /**
      * Initializes the activity.
@@ -62,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         ToggleButton alarmToggle = findViewById(R.id.alarmToggle);
 
-        //Set up the Notification Broadcast Intent.
+        // Set up the Notification Broadcast Intent.
         Intent notifyIntent = new Intent(this, AlarmReceiver.class);
 
         boolean alarmUp = (PendingIntent.getBroadcast(this, NOTIFICATION_ID,
@@ -73,66 +69,59 @@ public class MainActivity extends AppCompatActivity {
                 (this, NOTIFICATION_ID, notifyIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
 
-
         final AlarmManager alarmManager = (AlarmManager) getSystemService
                 (ALARM_SERVICE);
 
-        //Set the click listener for the toggle button.
+        // Set the click listener for the toggle button.
         alarmToggle.setOnCheckedChangeListener
                 (new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged
-                    (CompoundButton buttonView, boolean isChecked) {
-                String toastMessage;
-                if(isChecked){
+                    @Override
+                    public void onCheckedChanged
+                            (CompoundButton buttonView, boolean isChecked) {
+                        String toastMessage;
+                        if (isChecked) {
 
-                    long repeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
+                            long repeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
 
-                    long triggerTime = SystemClock.elapsedRealtime()
-                            + repeatInterval;
+                            long triggerTime = SystemClock.elapsedRealtime()
+                                    + repeatInterval;
 
-                    //If the Toggle is turned on, set the repeating alarm with
-                    // a 15 minute interval
-                    if (alarmManager != null) {
-                        alarmManager.setInexactRepeating
-                                (AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                                triggerTime, repeatInterval,
-                                        notifyPendingIntent);
+                            // If the Toggle is turned on, set the repeating alarm with
+                            // a 15 minute interval.
+                            if (alarmManager != null) {
+                                alarmManager.setInexactRepeating
+                                        (AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                                                triggerTime, repeatInterval,
+                                                notifyPendingIntent);
+                            }
+                            // Set the toast message for the "on" case.
+                            toastMessage = getString(R.string.alarm_on_toast);
+
+                        } else {
+                            // Cancel notification if the alarm is turned off.
+                            mNotificationManager.cancelAll();
+
+                            if (alarmManager != null) {
+                                alarmManager.cancel(notifyPendingIntent);
+                            }
+                            // Set the toast message for the "off" case.
+                            toastMessage = getString(R.string.alarm_off_toast);
+                        }
+
+                        // Show a toast to say the alarm is turned on or off.
+                        Toast.makeText(MainActivity.this, toastMessage,
+                                Toast.LENGTH_SHORT).show();
                     }
-                    //Set the toast message for the "on" case.
-                    toastMessage = getString(R.string.alarm_on_toast);
+                });
 
-                } else {
-                    //Cancel notification if the alarm is turned off
-                    mNotificationManager.cancelAll();
-
-                    if (alarmManager != null) {
-                        alarmManager.cancel(notifyPendingIntent);
-                    }
-                    //Set the toast message for the "off" case.
-                    toastMessage = getString(R.string.alarm_off_toast);
-
-                }
-
-                //Show a toast to say the alarm is turned on or off.
-                Toast.makeText(MainActivity.this, toastMessage,
-                        Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        //Create the notification channel.
+        // Create the notification channel.
         createNotificationChannel();
-
-
     }
-
 
     /**
      * Creates a Notification channel, for OREO and higher.
      */
     public void createNotificationChannel() {
-
 
         // Create a notification manager object.
         mNotificationManager =
@@ -152,11 +141,9 @@ public class MainActivity extends AppCompatActivity {
             notificationChannel.enableLights(true);
             notificationChannel.setLightColor(Color.RED);
             notificationChannel.enableVibration(true);
-            notificationChannel.setDescription
-                    ("Notifies every 15 minutes to stand up and walk");
-
+            notificationChannel.setDescription("Notifies every 15 minutes to " +
+                    "stand up and walk");
             mNotificationManager.createNotificationChannel(notificationChannel);
         }
     }
-
 }
