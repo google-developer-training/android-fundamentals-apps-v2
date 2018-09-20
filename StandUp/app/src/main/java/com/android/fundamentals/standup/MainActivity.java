@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             // Set the toast message for the "off" case.
                             toastMessage = getString(R.string.alarm_off_toast);
+
                         }
 
                         // Show a toast to say the alarm is turned on or off.
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         // Create the notification channel.
         createNotificationChannel();
     }
+
 
     /**
      * Creates a Notification channel, for OREO and higher.
