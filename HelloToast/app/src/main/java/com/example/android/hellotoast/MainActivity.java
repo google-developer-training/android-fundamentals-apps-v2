@@ -65,6 +65,6 @@ public class MainActivity extends AppCompatActivity {
     public void countUp(View view) {
         mCount++;
         if (mShowCount != null)
-            mShowCount.setText(Integer.toString(mCount));
+            mShowCount.setText(NumberFormat.getNumberInstance(Locale.getDefault()).format(mCount));
     }
 }
