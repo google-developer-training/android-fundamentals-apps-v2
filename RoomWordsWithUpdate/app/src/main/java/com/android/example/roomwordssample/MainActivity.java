@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    // When the use swipes a word,
+                    // When the user swipes a word,
                     // delete that word from the database.
                     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                         int position = viewHolder.getAdapterPosition();
