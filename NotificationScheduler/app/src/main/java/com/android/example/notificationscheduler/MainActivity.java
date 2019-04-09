@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         final TextView seekBarProgress = findViewById(R.id.seekBarProgress);
 
-        mScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
-
         // Updates the TextView with the value from the seekbar.
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -119,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (constraintSet) {
             JobInfo myJobInfo = builder.build();
+            if (mScheduler == null) {
+                mScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+            }
             mScheduler.schedule(myJobInfo);
             Toast.makeText(this, R.string.job_scheduled, Toast.LENGTH_SHORT)
                     .show();
