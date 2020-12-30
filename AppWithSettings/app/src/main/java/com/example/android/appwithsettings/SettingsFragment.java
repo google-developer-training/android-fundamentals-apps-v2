@@ -23,7 +23,7 @@ import android.support.v7.preference.PreferenceFragmentCompat;
  * A subclass of PreferenceFragmentCompat to supply preferences in a
  * Fragment for the SettingsActivity to display.
  */
-public class SettingsFragment extends PreferenceFragmentCompat {
+public static class SettingsFragment extends PreferenceFragmentCompat {
 
     /**
      * Called during onCreate(Bundle) to supply the preferences for this
