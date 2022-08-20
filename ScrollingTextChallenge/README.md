@@ -56,5 +56,5 @@ ScrollingTextChallenge - Solution Code
 
 
 MY name
-+++++++
+-------
 
