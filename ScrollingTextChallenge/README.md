@@ -54,3 +54,7 @@ I need to write something
 ScrollingTextChallenge - Solution Code
 ======================================
 
+
+MY name
++++++++
+
