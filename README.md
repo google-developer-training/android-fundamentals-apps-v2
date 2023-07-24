@@ -1,6 +1,8 @@
 Android Developer Fundamentals (Version 2)
 ==========================================
 
+**Caution**: This course is out of date and no longer maintained. Instead, please refer to the Android Basics with Compose course for the latest recommended practices. If you are looking for content on Views, you can check out the Android Basics in Kotlin course.
+
 This repository contains samples, starter code, and solutions for
 Version 2 of the Android Developer Fundamentals course (August 2018).
 
