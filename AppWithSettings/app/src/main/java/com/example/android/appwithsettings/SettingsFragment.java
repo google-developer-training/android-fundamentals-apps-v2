@@ -17,7 +17,7 @@
 package com.example.android.appwithsettings;
 
 import android.os.Bundle;
-import android.support.v7.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceFragmentCompat;
 
 /**
  * A subclass of PreferenceFragmentCompat to supply preferences in a
